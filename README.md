@@ -2,7 +2,7 @@
 
 Local-first Manifest V3 attention tracking. The project is being delivered in strict verified phases.
 
-## Current status: Phase 3 — Analytics
+## Current status: Phase 4 — Focus and blocking
 
 Implemented active-tab tracking, browser foreground detection, idle exclusion, duration calculation, domain normalization, service-worker recovery checkpoints, and IndexedDB persistence.
 
@@ -13,6 +13,9 @@ Click the extension toolbar icon or open its Options page to view the timeline.
 Phase 3 adds local aggregation, date ranges, productivity/category/domain/hour charts,
 context-switch metrics, and a fully explained focus score. The toolbar icon now opens
 the dashboard; its Activity Timeline link opens Phase 2 history and editing.
+
+Phase 4 adds functional focus sessions, daily domain limits, hard/soft blocking,
+five-minute overrides, persisted enforcement state, schedule evaluation, and attempt tracking.
 
 ## Test
 
