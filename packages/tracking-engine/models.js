@@ -13,6 +13,7 @@ export function createInterval(active, startAt, endAt, reason) {
     startedAt: startAt, endedAt: endAt, activeSeconds: Math.floor((endAt - startAt) / 1000),
     endReason: reason, mediaState: active.mediaState ?? "unknown",
     fullscreenState: active.fullscreenState ?? "unknown", idleState: "active",
+    classification: null,
     schemaVersion: 1
   };
 }
