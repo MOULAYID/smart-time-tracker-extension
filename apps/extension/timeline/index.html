@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Activity Timeline · Smart Time Tracker</title>
+  <link rel="stylesheet" href="timeline.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="eyebrow">SMART TIME TRACKER</p><h1>Activity timeline</h1><p class="subtitle">Your browsing activity stays on this device.</p></div>
+      <label>Date <input id="date" type="date"></label>
+    </header>
+    <section class="summary" aria-live="polite"><div><span>Tracked</span><strong id="total">0s</strong></div><div><span>Intervals</span><strong id="count">0</strong></div></section>
+    <p id="status" role="status">Loading activity…</p>
+    <ol id="timeline" aria-label="Activity intervals"></ol>
+  </main>
+  <template id="row-template">
+    <li class="activity">
+      <div class="rail"><span></span></div>
+      <article>
+        <div class="row-head"><div><time></time><h2></h2><p class="title"></p></div><strong class="duration"></strong></div>
+        <div class="classification">
+          <label>Category <input class="category" maxlength="60"></label>
+          <label>Productivity <select class="level"><option value="highly_productive">Highly productive</option><option value="productive">Productive</option><option value="neutral">Neutral</option><option value="distracting">Distracting</option><option value="highly_distracting">Highly distracting</option></select></label>
+          <button type="button">Save classification</button><span class="source"></span>
+        </div>
+      </article>
+    </li>
+  </template>
+  <script type="module" src="timeline.js"></script>
+</body>
+</html>
