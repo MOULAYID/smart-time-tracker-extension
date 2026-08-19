@@ -2,9 +2,13 @@
 
 Local-first Manifest V3 attention tracking. The project is being delivered in strict verified phases.
 
-## Current status: Phase 1 — Tracking Engine
+## Current status: Phase 2 — Timeline and Classification
 
 Implemented active-tab tracking, browser foreground detection, idle exclusion, duration calculation, domain normalization, service-worker recovery checkpoints, and IndexedDB persistence.
+
+Phase 2 adds a functional date-filtered activity timeline, deterministic default classification,
+classification precedence, and manual category/productivity corrections persisted to IndexedDB.
+Click the extension toolbar icon or open its Options page to view the timeline.
 
 ## Test
 
