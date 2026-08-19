@@ -6,6 +6,6 @@
   "minimum_chrome_version": "109",
   "permissions": ["tabs", "idle", "storage"],
   "background": { "service_worker": "service-worker.js", "type": "module" },
-  "action": { "default_title": "Open activity timeline" },
-  "options_page": "timeline/index.html"
+  "action": { "default_title": "Open productivity dashboard" },
+  "options_page": "dashboard/index.html"
 }
