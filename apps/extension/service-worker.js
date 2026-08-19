@@ -1,6 +1,7 @@
 import { TrackingEngine } from "../../packages/tracking-engine/engine.js";
 import { IndexedDbTrackingRepository } from "../../packages/database/indexeddb-repository.js";
 import { classifyInterval, validateClassification } from "../../packages/classification/classifier.js";
+import { buildSummary } from "../../packages/analytics/summary.js";
 
 let engine;
 let repository;
@@ -36,7 +37,7 @@ chrome.idle.onStateChanged.addListener(observe);
 chrome.runtime.onSuspend.addListener(() => { engine?.checkpoint(); });
 chrome.runtime.onStartup.addListener(boot);
 chrome.runtime.onInstalled.addListener(boot);
-chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: chrome.runtime.getURL("timeline/index.html") }));
+chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/index.html") }));
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (sender.id !== chrome.runtime.id || !message || typeof message.type !== "string") return false;
   (async () => {
@@ -51,6 +52,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       const classification = validateClassification(message.classification);
       await repository.updateIntervalClassification(message.id, classification);
       return classification;
+    }
+    if (message.type === "analytics:summary") {
+      const intervals = await repository.listIntervals({ ...message.range, limit: 2000 });
+      const rules = await repository.listClassificationRules();
+      return buildSummary(intervals.map(interval => ({ ...interval, classification: classifyInterval(interval, rules) })), message.range);
     }
     throw new Error("Unsupported message type");
   })().then(data => sendResponse({ ok: true, data })).catch(error => sendResponse({ ok: false, error: error.message }));
