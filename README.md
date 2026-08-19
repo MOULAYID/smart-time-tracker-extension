@@ -9,10 +9,11 @@ Implemented active-tab tracking, browser foreground detection, idle exclusion, d
 ## Test
 
 ```bash
+npm run build
 npm test
 npm run check
 ```
 
-Load `apps/extension` as an unpacked extension in `chrome://extensions` for browser testing.
+Load the generated `dist/extension` directory as an unpacked extension in `chrome://extensions`.
 
 See [Phase 1 architecture](docs/architecture.md) and [tracking rules](docs/tracking-rules.md).
