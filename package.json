@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/build-extension.js",
     "test": "node --test",
     "test:tracking": "node --test tests/tracking-engine.test.js tests/tracking-accuracy.test.js",
-    "check": "node scripts/check-extension.js && node --test"
+    "check": "node scripts/build-extension.js && node scripts/check-extension.js && node --test"
   },
   "engines": { "node": ">=20" }
 }
