@@ -6,6 +6,9 @@ The tracking system is split into three boundaries:
 2. `packages/tracking-engine`: deterministic state machine and interval calculations.
 3. `packages/database`: versioned IndexedDB persistence.
 
+`npm run build` assembles these boundaries into the self-contained `dist/extension`
+directory required by Chrome. Source modules remain separate for testing and maintenance.
+
 ## Event and interval model
 
 Chrome events are observations, not stored history. The engine converts consecutive eligible observations into immutable `ActivityInterval` rows with start/end timestamps, active seconds, tab/window identity, URL/title, normalized domain, end reason, and media/fullscreen placeholders. Raw URL/title remain local.
