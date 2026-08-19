@@ -1,0 +1,12 @@
+{
+  "name": "smart-time-tracker-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:tracking": "node --test tests/tracking-engine.test.js tests/tracking-accuracy.test.js",
+    "check": "node scripts/check-extension.js && node --test"
+  },
+  "engines": { "node": ">=20" }
+}
