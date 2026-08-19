@@ -9,6 +9,9 @@ const worker = await readFile(new URL("../dist/extension/service-worker.js", imp
 if (worker.includes("../../packages/")) throw new Error("Build contains imports outside the extension root");
 await access(new URL("../dist/extension/packages/tracking-engine/engine.js", import.meta.url));
 await access(new URL("../dist/extension/timeline/index.html", import.meta.url));
+await access(new URL("../dist/extension/dashboard/index.html", import.meta.url));
 const timeline = await readFile(new URL("../dist/extension/timeline/timeline.js", import.meta.url), "utf8");
 if (timeline.includes("../../../packages/")) throw new Error("Timeline build contains imports outside the extension root");
+const dashboard = await readFile(new URL("../dist/extension/dashboard/dashboard.js", import.meta.url), "utf8");
+if (dashboard.includes("../../../packages/")) throw new Error("Dashboard build contains imports outside the extension root");
 console.log("Manifest and least-privilege permission check passed.");
