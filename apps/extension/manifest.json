@@ -7,5 +7,6 @@
   "permissions": ["tabs", "idle", "storage"],
   "background": { "service_worker": "service-worker.js", "type": "module" },
   "action": { "default_title": "Open productivity dashboard" },
-  "options_page": "dashboard/index.html"
+  "options_page": "dashboard/index.html",
+  "web_accessible_resources": [{ "resources": ["blocked/index.html"], "matches": ["<all_urls>"] }]
 }
