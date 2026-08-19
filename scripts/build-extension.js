@@ -13,8 +13,11 @@ await cp(resolve(root, "packages/tracking-engine"), resolve(output, "packages/tr
 await cp(resolve(root, "packages/database"), resolve(output, "packages/database"), { recursive: true });
 await cp(resolve(root, "packages/classification"), resolve(output, "packages/classification"), { recursive: true });
 await cp(resolve(root, "packages/analytics"), resolve(output, "packages/analytics"), { recursive: true });
+await cp(resolve(root, "packages/blocking-engine"), resolve(output, "packages/blocking-engine"), { recursive: true });
 await cp(resolve(source, "timeline"), resolve(output, "timeline"), { recursive: true });
 await cp(resolve(source, "dashboard"), resolve(output, "dashboard"), { recursive: true });
+await cp(resolve(source, "focus"), resolve(output, "focus"), { recursive: true });
+await cp(resolve(source, "blocked"), resolve(output, "blocked"), { recursive: true });
 
 const worker = await readFile(resolve(source, "service-worker.js"), "utf8");
 await writeFile(
